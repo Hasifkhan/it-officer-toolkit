@@ -1,0 +1,22 @@
+# Cloudflare Worker config for the IT Officer Toolkit analytics API.
+# See analytics/README.md for the full step-by-step setup.
+name = "itk-analytics"
+main = "worker.js"
+compatibility_date = "2024-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "itk-analytics"
+database_id = "PASTE-YOUR-D1-DATABASE-ID-HERE"   # printed by: npx wrangler d1 create itk-analytics
+
+[vars]
+# Your site origin(s), comma separated, no path and no trailing slash. Browsers from other origins are rejected.
+ALLOWED_ORIGINS = "https://YOUR-USERNAME.github.io"
+# How the visitor IP is stored: full | masked (last part zeroed) | hash (salted SHA-256) | none
+IP_MODE = "full"
+# Events older than this many days are deleted automatically (checked about once a day).
+RETENTION_DAYS = "90"
+
+# Secrets (NOT stored in this file) — set with:
+#   npx wrangler secret put ADMIN_TOKEN     (the password for the admin page; use 20+ random characters)
+#   npx wrangler secret put IP_SALT         (only needed when IP_MODE = "hash")

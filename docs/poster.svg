@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="IT Officer Toolkit poster">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff7ed"/><stop offset="1" stop-color="#ffedd5"/></linearGradient>
+    <linearGradient id="or" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f97316"/><stop offset="1" stop-color="#c2410c"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fdba74" stroke-opacity=".35"/></pattern>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#9a3412" flood-opacity=".18"/></filter>
+    <style>
+      text{font-family:Inter,"Segoe UI",Helvetica,Arial,sans-serif}
+      .h{font-weight:800;fill:#1c1917}.m{fill:#57534e}.w{fill:#fff}.c{font-weight:700;fill:#1c1917;font-size:25px}.d{fill:#78716c;font-size:18px}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/><rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="1480" cy="120" r="260" fill="#fb923c" fill-opacity=".18"/><circle cx="-40" cy="860" r="300" fill="#f97316" fill-opacity=".12"/>
+  <rect x="0" y="0" width="1600" height="14" fill="url(#or)"/>
+
+  <!-- logo + title -->
+  <g transform="translate(90,60)"><rect width="104" height="104" rx="26" fill="url(#or)" filter="url(#sh)"/>
+    <path d="M32 36l24 16-24 16" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><rect x="60" y="70" width="24" height="8" rx="4" fill="#fed7aa"/></g>
+  <text x="214" y="124" class="h" font-size="22" style="fill:#c2410c;letter-spacing:3px;font-weight:700">OPEN-SOURCE · FREE · NO LOGIN</text>
+  <text x="90" y="290" class="h" font-size="104">IT Officer</text>
+  <text x="90" y="394" font-size="104" font-weight="800" fill="url(#or)">Toolkit</text>
+  <text x="94" y="450" class="m" font-size="30">Practical tools for everyday IT support.</text>
+  <text x="94" y="490" class="m" font-size="26">Runs 100% in your browser. Nothing you type leaves it.</text>
+
+  <!-- pills -->
+  <g font-size="22" font-weight="700">
+    <rect x="90" y="530" width="196" height="52" rx="26" fill="#fff" stroke="#fdba74"/><text x="188" y="564" text-anchor="middle" fill="#c2410c">HTML · CSS · JS</text>
+    <rect x="302" y="530" width="222" height="52" rx="26" fill="#fff" stroke="#fdba74"/><text x="413" y="564" text-anchor="middle" fill="#c2410c">No build step</text>
+    <rect x="540" y="530" width="262" height="52" rx="26" fill="#fff" stroke="#fdba74"/><text x="671" y="564" text-anchor="middle" fill="#c2410c">GitHub Pages ready</text>
+  </g>
+  <g transform="translate(0,10)">
+    <rect x="90" y="620" width="712" height="170" rx="22" fill="#fff" stroke="#fed7aa" filter="url(#sh)"/>
+    <g text-anchor="middle"><text x="200" y="702" font-size="62" font-weight="800" fill="#c2410c">78</text><text x="200" y="742" class="d">commands</text>
+      <text x="446" y="702" font-size="62" font-weight="800" fill="#c2410c">39</text><text x="446" y="742" class="d">guides</text>
+      <text x="692" y="702" font-size="62" font-weight="800" fill="#c2410c">10</text><text x="692" y="742" class="d">modules</text></g>
+    <path d="M323 650v110M569 650v110" stroke="#fed7aa" stroke-width="2"/>
+  </g>
+
+  <!-- feature cards -->
+  <g transform="translate(880,70)">
+    <g filter="url(#sh)">
+      <rect width="320" height="190" rx="22" fill="#fff"/><rect x="26" y="26" width="56" height="56" rx="14" fill="#ffedd5"/>
+      <g transform="translate(38,38)" fill="none" stroke="#c2410c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="0" width="8" height="8"/><rect x="0" y="16" width="8" height="8"/><rect x="18" y="16" width="8" height="8"/><path d="M13 8v4M4 16v-4h18v4"/></g>
+      <text x="26" y="124" class="c">IP tools</text><text x="26" y="154" class="d">Subnet · range · tracker</text></g>
+    <g transform="translate(350,0)" filter="url(#sh)">
+      <rect width="320" height="190" rx="22" fill="#fff"/><rect x="26" y="26" width="56" height="56" rx="14" fill="#ffedd5"/>
+      <g transform="translate(36,40)" fill="none" stroke="#c2410c" stroke-width="3.5" stroke-linecap="round"><path d="M0 8c8-9 28-9 36 0M7 16c6-6 16-6 22 0"/><circle cx="18" cy="24" r="2" fill="#c2410c"/></g>
+      <text x="26" y="124" class="c">Troubleshooting</text><text x="26" y="154" class="d">39 guides · Bangla notes</text></g>
+    <g transform="translate(0,220)" filter="url(#sh)">
+      <rect width="320" height="190" rx="22" fill="#fff"/><rect x="26" y="26" width="56" height="56" rx="14" fill="#ffedd5"/>
+      <g transform="translate(37,42)" fill="none" stroke="#c2410c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0 2l14 10L0 22M18 24h16"/></g>
+      <text x="26" y="124" class="c">Command library</text><text x="26" y="154" class="d">CMD &amp; PowerShell, copy-only</text></g>
+    <g transform="translate(350,220)" filter="url(#sh)">
+      <rect width="320" height="190" rx="22" fill="#fff"/><rect x="26" y="26" width="56" height="56" rx="14" fill="#ffedd5"/>
+      <g transform="translate(40,38)" fill="none" stroke="#c2410c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0h18l8 8v24H0z"/><path d="M6 16h14M6 23h14"/></g>
+      <text x="26" y="124" class="c">Daily report</text><text x="26" y="154" class="d">Text, CSV and print</text></g>
+    <g transform="translate(0,440)" filter="url(#sh)">
+      <rect width="320" height="190" rx="22" fill="#fff"/><rect x="26" y="26" width="56" height="56" rx="14" fill="#ffedd5"/>
+      <g transform="translate(37,40)" fill="none" stroke="#c2410c" stroke-width="3.5" stroke-linejoin="round"><path d="M0 8l16-8 16 8v18l-16 8-16-8zM0 8l16 8 16-8M16 16v18"/></g>
+      <text x="26" y="124" class="c">IT inventory</text><text x="26" y="154" class="d">Warranty badges · CSV</text></g>
+    <g transform="translate(350,440)" filter="url(#sh)">
+      <rect width="320" height="190" rx="22" fill="#fff"/><rect x="26" y="26" width="56" height="56" rx="14" fill="#ffedd5"/>
+      <g transform="translate(38,40)" fill="none" stroke="#c2410c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="22" r="8"/><path d="M14 17l16-16M24 7l5 5"/></g>
+      <text x="26" y="124" class="c">Password tools</text><text x="26" y="154" class="d">Web Crypto · never stored</text></g>
+    <g transform="translate(0,660)">
+      <rect width="670" height="120" rx="22" fill="url(#or)" filter="url(#sh)"/>
+      <text x="34" y="54" class="w" font-size="28" font-weight="800">Optional admin dashboard</text>
+      <text x="34" y="92" class="w" font-size="20" fill-opacity=".95">Daily visitors by country &amp; IP · usage stats · visitor log · blocklist</text></g>
+  </g>
+  <text x="90" y="858" class="d" font-size="20">github.com/YOUR-USERNAME/it-officer-toolkit</text>
+  <text x="802" y="858" class="d" font-size="20" text-anchor="end">Made for IT teams · Bangladesh</text>
+</svg>
