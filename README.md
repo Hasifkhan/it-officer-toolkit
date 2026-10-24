@@ -13,7 +13,7 @@
 ![GitHub Pages](https://img.shields.io/badge/deploy-GitHub_Pages-181717?logo=github)
 ![Privacy](https://img.shields.io/badge/privacy-local--first-16a34a)
 
-[**Live demo**](https://YOUR-USERNAME.github.io/it-officer-toolkit/) · [Features](#-features) · [Screenshots](#-screenshots) · [Quick start](#-quick-start) · [Admin dashboard](#-optional-admin-dashboard) · [Privacy](#privacy--local-data)
+[**Live demo**](https://hasifkhan.github.io/it-officer-toolkit/) · [Features](#-features) · [Screenshots](#-screenshots) · [Quick start](#-quick-start) · [Admin dashboard](#-optional-admin-dashboard) · [Privacy](#privacy--local-data)
 
 </div>
 
