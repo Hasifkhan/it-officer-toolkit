@@ -13,7 +13,7 @@
 ![GitHub Pages](https://img.shields.io/badge/deploy-GitHub_Pages-181717?logo=github)
 ![Privacy](https://img.shields.io/badge/privacy-local--first-16a34a)
 
-[**Live demo**](https://Hasifkhan.github.io/it-officer-toolkit/) · [Features](#-features) · [Screenshots](#-screenshots) · [Quick start](#-quick-start) · [Admin dashboard](#-optional-admin-dashboard) · [Privacy](#privacy--local-data)
+[**Live demo**](https://YOUR-USERNAME.github.io/it-officer-toolkit/) · [Features](#-features) · [Screenshots](#-screenshots) · [Quick start](#-quick-start) · [Admin dashboard](#-optional-admin-dashboard) · [Privacy](#privacy--local-data)
 
 </div>
 
@@ -33,6 +33,7 @@ IT Officer Toolkit puts the small tasks of daily IT support in one place: checki
 | Module | What you get |
 |---|---|
 | **A. IP tools** | IPv4 validator (bulk) · Subnet calculator (/0–/32, /31 and /32 handled, mask or CIDR) · Range generator (up to 65,536, CSV) · IP availability tracker (statuses, search, edit, bulk add, CSV import/export, free-IP finder) · IP and MAC utilities |
+| **B2. RJ45 wiring** | Animated pinout diagrams for T568A/T568B, straight-through, crossover (10/100 and Gigabit), rollover console, loopback plug, PoE (Mode A, Mode B, 4-pair) and T1/E1 RJ48; click a wire to highlight it; T568A↔B swap animation; crimping steps and cable categories |
 | **B. Network guides** | 14 guides (no internet, DNS, DHCP, gateway, Wi-Fi, VPN, shared folder, printer, packet loss…) with symptoms, causes, ordered steps, copyable commands, expected results, escalation and Bangla summaries |
 | **C. Command library** | 78 CMD/PowerShell commands with purpose, privileges, risk level and warnings. **Copy only; nothing is ever executed** |
 | **D. Daily report** | Multiple entries, auto duration and totals, copy as text, print/PDF, CSV, optional local draft |
@@ -59,7 +60,7 @@ IT Officer Toolkit puts the small tasks of daily IT support in one place: checki
 ## 🚀 Quick start
 
 ```bash
-git clone https://github.com/Hasifkhan/it-officer-toolkit.git
+git clone https://github.com/YOUR-USERNAME/it-officer-toolkit.git
 cd it-officer-toolkit
 python3 -m http.server 8000      # then open http://localhost:8000
 ```
@@ -144,6 +145,7 @@ assets/js/  storage.js (utils, storage, icons) · datatable.js (shared CRUD tabl
             troubleshooting.js · command-library.js · report-generator.js · inventory.js
             calculators.js · password.js · app.js (router, search, theme)
 assets/icons/favicon.svg
+assets/js/  rj45.js (animated RJ45 wiring)
 assets/js/  config.js · analytics.js · admin.js   (optional visitor analytics + admin)
 analytics/   worker.js · schema.sql · wrangler.toml · README.md   (Cloudflare Worker backend)
 docs/        poster.svg · poster.png · screenshots/

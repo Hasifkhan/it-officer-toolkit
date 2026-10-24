@@ -1,7 +1,7 @@
 /* Run with:  node tests/run.js   (no dependencies). Tests the pure logic only; UI is covered by tests/ui-smoke.js */
 const fs = require('fs'), path = require('path'), vm = require('vm'), assert = require('assert');
 const dir = path.join(__dirname, '..', 'assets', 'js');
-['storage', 'datatable', 'ip-tools', 'troubleshooting', 'command-library', 'report-generator', 'inventory', 'calculators', 'password']
+['storage', 'datatable', 'ip-tools', 'troubleshooting', 'command-library', 'report-generator', 'inventory', 'calculators', 'password', 'rj45']
   .forEach(function (f) { vm.runInThisContext(fs.readFileSync(path.join(dir, f + '.js'), 'utf8'), { filename: f + '.js' }); });
 const ITK = globalThis.ITK, ip = ITK.ip, U = ITK.util;
 let pass = 0, fail = 0;
@@ -103,5 +103,13 @@ t('usage stats persist in a cookie, counts only, can be disabled/reset', () => {
   delete globalThis.document;
 });
 
+const rj = ITK.rj45;
+t('RJ45: standards are valid permutations differing only by pairs 2/3', () => { ['A', 'B'].forEach(k => eq(rj.STD[k].slice().sort().join(), ['B', 'Br', 'G', 'O', 'W/B', 'W/Br', 'W/G', 'W/O'].sort().join())); [4, 5, 7, 8].forEach(p => eq(rj.STD.A[p - 1], rj.STD.B[p - 1])); eq(rj.STD.A[0], rj.STD.B[2]); eq(rj.STD.A[1], rj.STD.B[5]); });
+t('RJ45: every variant maps 8 pins one-to-one', () => { rj.modes.forEach(m => m.variants.forEach(v => { if (m.single) { v.arcs.forEach(a => assert(a[0] !== a[1])); return; } const w = rj.wires(m, v); eq(w.length, 8); eq(new Set(w.map(x => x.a)).size, 8); eq(new Set(w.map(x => x.b)).size, 8); })); });
+t('RJ45: straight keeps pin numbers; crossover swaps 1/3 and 2/6; gigabit crossover also 4/7 5/8; rollover reverses', () => { const s = rj.wires(rj.mode('straight-b'), rj.mode('straight-b').variants[0]); s.forEach(w => eq(w.a, w.b)); const c = rj.wires(rj.mode('crossover'), rj.mode('crossover').variants[0]); eq(c[0].b, 3); eq(c[1].b, 6); eq(c[3].b, 4); const cg = rj.wires(rj.mode('crossover'), rj.mode('crossover').variants[1]); eq(cg[3].b, 7); eq(cg[4].b, 8); rj.wires(rj.mode('rollover'), rj.mode('rollover').variants[0]).forEach(w => eq(w.a + w.b, 9)); });
+t('RJ45: colour of a wire matches the far-end standard (crossover = A on one end, B on the other)', () => { const m = rj.mode('crossover'); rj.wires(m, m.variants[0]).forEach(w => eq(w.code, rj.STD.B[w.b - 1], 'pin ' + w.a + '->' + w.b)); rj.wires(m, m.variants[1]).filter(w => [4, 5, 7, 8].indexOf(w.a) === -1).forEach(w => eq(w.code, rj.STD.B[w.b - 1])); ['straight-a', 'straight-b'].forEach(id => { const mm = rj.mode(id); rj.wires(mm, mm.variants[0]).forEach(w => eq(w.code, rj.STD[mm.std][w.b - 1])); }); });
+t('RJ45: transmit pairs of one end feed receive pairs of the other (10/100)', () => { const m = rj.mode('crossover'), w = rj.wires(m, m.variants[0]); w.filter(x => x.flow === 'ab').forEach(x => assert(/^TX/.test(x.sigA) && /^RX/.test(x.sigB), x.sigA + '>' + x.sigB)); w.filter(x => x.flow === 'ba').forEach(x => assert(/^RX/.test(x.sigA) && /^TX/.test(x.sigB))); const s = rj.mode('straight-b'), sw = rj.wires(s, s.variants[0]); sw.filter(x => x.flow === 'ab').forEach(x => assert(/^TX/.test(x.sigA) && /^RX/.test(x.sigB))); });
+t('RJ45: PoE power pins and rj48/loopback facts', () => { const p = rj.mode('poe'); eq(rj.wires(p, p.variants[0]).filter(w => w.pwr).map(w => w.a).join(), '1,2,3,6'); eq(rj.wires(p, p.variants[1]).filter(w => w.pwr).map(w => w.a).join(), '4,5,7,8'); eq(rj.wires(p, p.variants[2]).filter(w => w.pwr).length, 8); const j = rj.mode('rj48'); eq(rj.wires(j, j.variants[0]).filter(w => w.flow).map(w => w.a).join(), '1,2,4,5'); const l = rj.mode('loopback'); eq(JSON.stringify(l.variants[0].arcs.map(a => [a[0], a[1]])), '[[1,3],[2,6]]'); });
+t('RJ45: svg renders for every variant, escapes text, has animated pulses', () => { rj.modes.forEach(m => m.variants.forEach(v => { const s = rj.svg(m, v); assert(s.startsWith('<svg') && s.endsWith('</svg>')); assert(/rj-p rj-(ab|ba)/.test(s), m.id); })); });
 console.log('\n' + pass + ' passed, ' + fail + ' failed');
 process.exit(fail ? 1 : 0);
